@@ -1,0 +1,7 @@
+backup/
+plugged/
+tmp/
+undo/
+view/
+.netrwhist
+nvimrc.local
