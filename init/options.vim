@@ -1,21 +1,23 @@
 " ::::::::: Options :::::::::::::::::::::::
 
 " startup
-set exrc           " enable local .vimrc files
-set secure         " disable unsafe commands in local .vimrc files
+set exrc           " enable local .nvimrc files
+set secure         " disable unsafe commands in local .nvimrc files
 
 " persistence
-set directory=~/.vim/tmp
+set directory=~/.nvim/tmp
 set backup
-set backupdir=~/.vim/backup
+set backupdir=~/.nvim/backup
 set undofile
-set undodir=~/.vim/undo
+set undodir=~/.nvim/undo
+set viminfo+=n~/.nvim/info
 set history=500
 set hidden
 
 " tags
 set tags-=./tags    " don't just look in the current buffer's directory
 set tags+=./tags;~  " search for tags recursively upwards until ~
+set tags+=.git/tags " search for tags in .git
 
 " navigation
 set incsearch

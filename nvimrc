@@ -20,6 +20,7 @@ Plug 'eiginn/netrw'
 Plug 'gabebw/vim-spec-runner',         { 'on': ['<Plug>RunFocusedSpec', '<Plug>RunCurrentSpecFile'] }
 Plug 'guns/xterm-color-table.vim'
 Plug 'ivanbrennan/listical',           { 'on': ['<Plug>QfxListical', '<Plug>LocListical'] }
+Plug 'ivanbrennan/vmux'
 Plug 'jwhitley/vim-matchit'
 Plug 'kchmck/vim-coffee-script',       { 'for': 'coffee' }
 Plug 'kien/ctrlp.vim'
@@ -32,6 +33,7 @@ Plug 'tpope/vim-bundler'
 Plug 'tpope/vim-commentary',           { 'on': ['<Plug>Commentary', '<Plug>CommentaryLine'] }
 Plug 'tpope/vim-dispatch',             { 'on': 'Dispatch' }
 Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-projectionist'
 Plug 'tpope/vim-rails'
 Plug 'tpope/vim-rake'
 Plug 'tpope/vim-rbenv',                { 'on': 'Rbenv' }
@@ -51,5 +53,5 @@ syntax enable
 
 runtime! init/**.vim
 
-silent! source ~/.vimrc.local
+silent! source ~/.nvimrc.local
 

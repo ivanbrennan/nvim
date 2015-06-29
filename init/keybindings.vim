@@ -5,96 +5,92 @@
 map <Space> <Leader>
 
 " Timeout mappings fast and key codes faster
-set timeout timeoutlen=250 ttimeoutlen=100
+set timeout timeoutlen=300 ttimeoutlen=100
 
 " source / edit vimrc
 nnoremap <silent> <C-.>      :source $MYVIMRC \| call RefreshUI()<CR>
 nnoremap          <C-,>      :edit   $MYVIMRC<CR>
-nnoremap          <C-,>k     :edit   ~/.vim/init/keybindings.vim<CR>
-nnoremap          <C-,><C-K> :edit   ~/.vim/init/keybindings.vim<CR>
-nnoremap          <C-,>o     :edit   ~/.vim/init/options.vim<CR>
-nnoremap          <C-,><C-O> :edit   ~/.vim/init/options.vim<CR>
+nnoremap          <C-,>f     :edit   ~/.nvim/init/functions.vim<CR>
+nnoremap          <C-,><C-F> :edit   ~/.nvim/init/functions.vim<CR>
+nnoremap          <C-,>k     :edit   ~/.nvim/init/keybindings.vim<CR>
+nnoremap          <C-,><C-K> :edit   ~/.nvim/init/keybindings.vim<CR>
+nnoremap          <C-,>o     :edit   ~/.nvim/init/options.vim<CR>
+nnoremap          <C-,><C-O> :edit   ~/.nvim/init/options.vim<CR>
+nnoremap          <C-,>w     :edit   ~/.nvim/init/wild.vim<CR>
+nnoremap          <C-,><C-W> :edit   ~/.nvim/init/wild.vim<CR>
 
 " ··········· buffers ········· {{{1
-cnoremap <expr>   %%     getcmdtype() == ':' ? fnameescape(expand('%:h')).'/' : '%%'
+cnoremap <expr>   %%    getcmdtype() == ':' ? fnameescape(expand('%:h')).'/' : '%%'
 
-nmap <silent> <Leader>-  :tabedit %%<cr>
+nmap <silent> <Leader>- :tabedit %%<cr>
 
-nnoremap <Leader>e       :edit 
-nmap     <Leader>ee      :edit %%
-nnoremap <Leader>et      :tabedit 
-nnoremap <Leader>eh      :edit ~/
+nnoremap <Leader>e      :edit 
+nmap     <Leader>ee     :edit %%
+nnoremap <Leader>et     :tabedit 
+nnoremap <Leader>eh     :edit ~/
 
-nnoremap <Leader>w       :write 
-vnoremap <Leader>w       :write 
-nmap     <Leader>ww      :write %%
-vmap     <Leader>ww      :write %%
-nnoremap <Leader>wq      :wq 
+nnoremap <Leader>w      :write 
+vnoremap <Leader>w      :write 
+nmap     <Leader>ww     :write %%
+vmap     <Leader>ww     :write %%
+nnoremap <Leader>wq     :wq 
 
-nnoremap  <Leader>dd     :bdelete<CR>
-nnoremap  <Leader>dl     :bdelete#<CR>
+nnoremap  <Leader>dd    :bdelete<CR>
+nnoremap  <Leader>dl    :bdelete#<CR>
 
 " Buffer list
-nnoremap <Leader>b       :buffers<CR>
-nnoremap <Leader>p       :CtrlPBuffer<CR>
-nnoremap <M-Tab>         :bnext<CR>
-nnoremap <M-S-Tab>       :bprevious<CR>
-nnoremap <Leader>l       <C-^>
+nnoremap <S-Space>      :buffers<CR>
+nnoremap <M-Tab>        :bnext<CR>
+nnoremap <M-S-Tab>      :bprevious<CR>
+nnoremap <Leader>l      <C-^>
 
-" Quickfix list
-nmap     <C-Space>       <Plug>QfxListical
-nnoremap <C-Down>        :cnext<CR>
-nnoremap <C-J>           :cnext<CR>
-nnoremap <C-Up>          :cprevious<CR>
-nnoremap <C-K>           :cprevious<CR>
-nnoremap <C-Left>        :colder<CR>
-nnoremap <C-Right>       :cnewer<CR>
+" Quickfix list (alt h/j/k/l)
+nmap     <C-@>          <Plug>QfxListical
+nnoremap ∆              :cnext<CR>
+nnoremap ˚              :cprevious<CR>
+nnoremap ˙              :colder<CR>
+nnoremap ¬              :cnewer<CR>
 
-" Location List
-nmap     <C-S-Space>     <Plug>LocListical
-nnoremap <S-Down>        :lnext<CR>
-nnoremap <S-Up>          :lprevious<CR>
-nnoremap <S-Left>        :lolder<CR>
-nnoremap <S-Right>       :lnewer<CR>
+" Location List (alt H/J/K/L)
+nmap     <C-S-Space>    <Plug>LocListical
+nnoremap Ô              :lnext<CR>
+nnoremap               :lprevious<CR>
+nnoremap Ó              :lolder<CR>
+nnoremap Ò              :lnewer<CR>
 
-noremap  <Leader><Space> :pwd<CR>
-noremap  <Leader>.       :call ReLoadBuffers()<CR>
-noremap  <Leader>h       <C-Z>
+noremap  <Leader><Space>    :pwd<CR>
+noremap  <silent> <Leader>. :call ReloadBuffers()<CR>
 
 " Vinegar
 nnoremap - -
-nmap     _               <Plug>VinegarUp
+nmap     _ <Plug>VinegarUp
 
 " ··········· ex commands ····· {{{1
-nnoremap <Leader>1       :!
-noremap  <Leader>:       :<Up>
-nnoremap <Leader>H       :help 
+nnoremap <Leader>1        :!
+noremap  <Leader>:        :<Up>
+nnoremap <Leader>h        :help 
 
-cnoremap <C-P>           <Up>
-cnoremap <C-N>           <Down>
-cnoremap <C-A>           <Home>
-cnoremap <C-B>           <Left>
+cnoremap <C-P>            <Up>
+cnoremap <C-N>            <Down>
+cnoremap <C-A>            <Home>
+cnoremap <C-B>            <Left>
 
 " ··········· positioning ····· {{{1
 " auto-indent whole file
 nnoremap <Leader>= gg=G``
 
 " push newline
-nnoremap <S-CR>   mzO<Esc>j`z
-nnoremap <C-CR>   mzo<Esc>k`z
+nnoremap <S-CR>   mzO<Esc>`z
+nnoremap <C-CR>   mzo<Esc>`z
 
-" bubble up <M-K>
-nnoremap <silent> ˚ mZ:move .-2<CR>==`Z
-vnoremap          ˚ :move '<-2<CR>gv=gv
-inoremap          ˚ <Esc>:move .-2<CR>==gi
-" bubble down <M-J>
-nnoremap <silent> ∆ mZ:move .+1<CR>==`Z
-vnoremap          ∆ :move '>+1<CR>gv=gv
-inoremap          ∆ <Esc>:move .+1<CR>==gi
-" bubble left <M-H>
-vnoremap          ˙ <Esc>`<<Left>i_<Esc>mz"_xgvx`zPgv<Left>o<Left>o
-" bubble right <M-L>
-vnoremap          ¬ <Esc>`><Right>gvxpgv<Right>o<Right>o
+" bubble up
+nnoremap <silent> <C-K>    mZ:silent! move .-2<CR>==`Z
+vnoremap <silent> <C-K>    :<C-U>silent! '<,'>move '<-2<CR>gv=gv
+inoremap <silent> <C-Up>   <Esc>:silent! move .-2<CR>==gi
+" bubble down
+nnoremap <silent> <C-J>    mZ:silent! move .+1<CR>==`Z
+vnoremap <silent> <C-J>    :<C-U>silent! '<,'>move '>+1<CR>gv=gv
+inoremap <silent> <C-Down> <Esc>:silent! move .+1<CR>==gi
 
 " ··········· editing ········· {{{1
 " spawn newline
@@ -110,15 +106,15 @@ noremap  <Leader>c  "*
 noremap  <Leader>cy "+yg_
 
 " commentary
-xmap     <Leader>3  <Plug>Commentary
-nmap     <Leader>3  <Plug>Commentary
-omap     <Leader>3  <Plug>Commentary
-nmap     <Leader>33 <Plug>CommentaryLine
+xmap     <Leader>;  <Plug>Commentary
+nmap     <Leader>;  <Plug>Commentary
+omap     <Leader>;  <Plug>Commentary
+nmap     <Leader>;; <Plug>CommentaryLine
 
 " jump around insert mode
 inoremap <C-B>      <C-O>b
-inoremap jkl        <C-O>A
-inoremap lkj        <C-O>I
+inoremap JK         <C-O>A
+inoremap KJ         <C-O>I
 
 " toggle case
 inoremap <C-_>      <Esc>viwg~gi
@@ -127,6 +123,7 @@ inoremap <C-_>      <Esc>viwg~gi
 
 inoremap        <C-L>  <C-X><C-L>
 inoremap        <C-]>  <C-X><C-]>
+inoremap        <C-@>  <C-X><C-O>
 
 inoremap <expr> <Tab>   SuperTab("\<C-N>", "\<Tab>")
 inoremap <expr> <S-Tab> SuperTab("\<C-P>", "\<S-Tab>")
@@ -136,12 +133,16 @@ inoremap <expr> <S-Tab> SuperTab("\<C-P>", "\<S-Tab>")
 noremap  `  '
 noremap  '  `
 
-" matchit
+" :nohlsearch
+noremap  <silent> <C-H> :nohlsearch<CR>
+" lazy matchit
 map      <Leader>5  %
 
-" last search
-noremap  <Leader>/  /<Up>
-noremap  <Leader>?  ?<Up>
+" sane regexes
+nnoremap  <Leader>/  /\v
+vnoremap  <Leader>/  /\v
+nnoremap  <Leader>?  ?\v
+vnoremap  <Leader>?  ?\v
 
 " substitute
 nnoremap <Leader>s  :%s/
@@ -153,7 +154,7 @@ nnoremap &  :&&<CR>
 xnoremap &  :&&<CR>
 
 " Ag
-nnoremap <Leader>g  :Ag! 
+nnoremap <Leader>f  :Ag! 
 nnoremap <Leader>,g :LAg! 
 
 " word under cursor
@@ -161,65 +162,61 @@ noremap <silent> <Leader>* :set foldenable!<CR>
       \:let view=winsaveview()<CR>#*
       \:call winrestview(view)<CR>:set foldenable!<CR>
 
-" toggle search highlighting
-noremap <silent> <C-L>      :nohlsearch<CR><C-L>
-noremap          <C-L><C-L> :set hlsearch! hlsearch?<CR>
-
 " ··········· splits ·········· {{{1
-nmap              <Leader>o  <Plug>ZoomWin
-noremap           <C-W>p     <C-W><Bar>
-noremap           <C-W><C-P> <C-W><Bar>
-noremap           <C-W>u     <C-W>_
-noremap           <C-W><C-U> <C-W>_
-noremap           <C-W>m     <C-W>=
-noremap           <C-W><C-M> <C-W>=
-noremap  <silent> <C-W>n     :vnew<CR>
-noremap  <silent> <C-W><C-N> :vnew<CR>
-noremap  <silent> <C-W>]     :vertical stag<CR>
-noremap  <silent> <C-W><C-]> :vertical stag<CR>
-nnoremap          <Leader>q  <C-W>q
+noremap           <C-W>O       <C-W>o
+nmap              <C-W>o       <Plug>ZoomWin
+nmap              <C-W><C-O>   <Plug>ZoomWin
+noremap           <C-W>p       <C-W><Bar>
+noremap           <C-W><C-P>   <C-W><Bar>
+noremap           <C-W>u       <C-W>_
+noremap           <C-W><C-U>   <C-W>_
+noremap           <C-W><Space> <C-W>=
+noremap           <C-W><C-@>   <C-W>=
+noremap  <silent> <C-W>n       :vnew<CR>
+noremap  <silent> <C-W><C-N>   :vnew<CR>
+noremap  <silent> <C-W>]       :vertical stag<CR>
+noremap  <silent> <C-W><C-]>   :vertical stag<CR>
+nnoremap          <C-Q>        <C-W>q
 
 " ··········· display ········· {{{1
-nnoremap <Leader>,w  :setlocal wrap! linebreak! list! wrap?<CR>
 noremap  <silent> <Leader>,m :call ToggleColorscheme()<CR>
-
-noremap  <Leader>,x :call HexHighlight()<CR>
-noremap  <Leader>,y :call SynStack()<CR>
-
-" line numbers
-noremap  <Leader>N  :call NumberToggle()<CR>
-noremap  <Leader>R  :set relativenumber! relativenumber?<CR>
+noremap           <Leader>[  :call SynStack()<CR>
 
 " folding
-noremap  <expr>   <Leader>Z  FoldMethToggle()
+noremap  <silent> <Leader>Z  :call FoldMethToggle()<CR>
 noremap  <silent> <Leader>,z :call FoldColToggle(4)<CR>
 
 " cursor
 nnoremap <silent> <C-_>      :call CursorLineToggle()<CR>
-vnoremap <silent> <C-_>      :<C-U>call CursorLineToggle()<CR>gv
 nnoremap <silent> <C-Bslash> :set cursorcolumn!<CR>
 vnoremap <silent> <C-Bslash> :<C-U>set cursorcolumn!<CR>gv
 nnoremap <silent> <Leader>]  :call ColorColToggle()<CR>
-vnoremap <silent> <Leader>]  :<C-U>call ColorColToggle()<CR>gv
+
+" emacs redraws
+nnoremap <C-L>           zz<C-L>
+nnoremap <Leader><C-L>   zt<C-L>
 
 " ··········· tags ············ {{{1
 nnoremap <F5> :!ctags -R<CR>
 
 " ··········· testing ········· {{{1
-nmap     <Leader>t           <Plug>RunFocusedSpec
-nmap     <Leader>T           <Plug>RunCurrentSpecFile
-nmap     <Leader>,t          <Plug>RunMostRecentSpec
-noremap  <silent> <Leader>;  :VtrFocusRunner<CR>
-noremap  <silent> <Leader>'  :VtrKillRunner<CR>
-nnoremap <silent> <Leader>`  :call Spatch()<CR>
+nmap     <Leader>r           <Plug>RunFocusedSpec
+nmap     <Leader>t           <Plug>RunCurrentSpecFile
+nmap     <Leader>,r          <Plug>RunMostRecentSpec
+noremap  <silent> <Leader>,f :VtrFocusRunner<CR>
+noremap  <silent> <Leader>,k :VtrKillRunner<CR>
+nnoremap <silent> <Leader>x  :call Vmux()<CR>
+nnoremap <silent> <Leader>,x :call Vtux()<CR>
 
 " ··········· git ············· {{{1
-noremap <silent> <Leader>B   :Gblame<CR>
+noremap <silent> <Leader>g   :Gblame<CR>
 
 " ··········· rails ··········· {{{1
 nnoremap <silent> <Leader><Tab> :A<CR>
 nnoremap          <Leader>E     :Eschema 
+nnoremap          <Leader>M     :Emigration 
 nnoremap          <Leader>es    :Espec 
+nnoremap          <Leader>ef    :edit spec/factories/
 nnoremap          <Leader>ec    :Econtroller 
 nnoremap          <Leader>em    :Emodel 
 nnoremap          <Leader>ev    :Eview 

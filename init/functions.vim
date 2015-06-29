@@ -70,10 +70,9 @@ endfunction
 
 " ··········· syntax ··················· {{{1
 function! SynStack()
-  if !exists("*synstack")
-    return
+  if exists("*synstack")
+    echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
   endif
-  echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
 endfunction
 
 " ··········· statusline ··············· {{{1
@@ -184,21 +183,21 @@ function! GitBranch()
   return ''
 endfunction
 
-function! ReLoadBuffers()
+function! ReloadBuffers()
   set autoread
-  checktime
+  silent! checktime
   set noautoread
+  echo 'reloaded!'
 endfunction
 
-" ··········· dispatch ················· {{{1
-function! Spatch()
-  if g:spec_runner_dispatcher == "VtrSendCommand! {command}"
-    let g:spec_runner_dispatcher = "Dispatch {command}"
-    echo "Testing with Dispatch"
-  else
-    let g:spec_runner_dispatcher = "VtrSendCommand! {command}"
-    echo "Testing with Vtr"
-  endif
+" ··········· vmux ····················· {{{1
+function! Vmux()
+  VmuxPrimary
+  let g:spec_runner_dispatcher = "call system(\"tmux send -t " . g:vmux_primary . " C-L '{command}' ENTER\")"
+endfunction
+
+function! Vtux()
+  let g:spec_runner_dispatcher = "VtrSendCommand! {command}"
 endfunction
 
 " ··········· keyboard ················· {{{1

@@ -32,8 +32,8 @@ hi Visual                   ctermbg=25                              gui=None    
 hi Folded       ctermfg=244 ctermbg=235                             gui=None        guifg=#808080       guibg=#262626
 hi FoldColumn   ctermfg=244 ctermbg=234                             gui=None        guifg=#808080       guibg=#1c1c1c
 
-hi IncSearch    ctermfg=234 ctermbg=214 cterm=underline             gui=underline   guifg=#1c1c1c       guibg=#ffaf00
-hi Search       ctermfg=234 ctermbg=214 cterm=none                  gui=None        guifg=#1c1c1c       guibg=#ffaf00
+hi IncSearch    ctermfg=17  ctermbg=190 cterm=underline             gui=underline   guifg=#00005f       guibg=#e4e4e4
+hi Search       ctermfg=17  ctermbg=195 cterm=none                  gui=None        guifg=#00005f       guibg=#e4e4e4
 
 hi ModeMsg      ctermfg=117 ctermbg=234 cterm=bold                  gui=bold        guifg=#87dfff       guibg=#1c1c1c
 hi MoreMsg      ctermfg=122 ctermbg=234 cterm=none                  gui=None        guifg=#87ffdf       guibg=#1c1c1c
@@ -42,7 +42,7 @@ hi WarningMsg   ctermfg=122 ctermbg=234 cterm=none                  gui=None    
 hi ErrorMsg     ctermfg=255 ctermbg=160 cterm=none                  gui=None        guifg=#eeeeee       guibg=#df0000
 hi Error        ctermfg=196 ctermbg=234 cterm=none                  gui=None        guifg=#ff0000       guibg=#1c1c1c
 
-hi SpecialKey   ctermfg=214 ctermbg=234                             gui=None        guifg=#ffaf00       guibg=#1c1c1c
+hi SpecialKey   ctermfg=237 ctermbg=234                             gui=None        guifg=#ffaf00       guibg=#1c1c1c
 hi Title        ctermfg=075 ctermbg=234 cterm=bold                  gui=bold        guifg=#5fafff       guibg=#1c1c1c
 hi Directory    ctermfg=117 ctermbg=234 cterm=bold                  gui=bold        guifg=#87dfff       guibg=#1c1c1c
 
@@ -54,7 +54,7 @@ if version >= 700 " Vim 7.x specific colors
     hi CursorLine   ctermbg=235 cterm=none                          gui=None        guibg=#262626
     hi CursorColumn ctermbg=235 cterm=none                          gui=None        guibg=#262626
 
-    hi MatchParen   ctermfg=196 ctermbg=234 cterm=bold,reverse      gui=bold,reverse    guifg=#ff0000       guibg=#1c1c1c
+    hi MatchParen   ctermfg=069 ctermbg=234 cterm=bold,reverse      gui=bold,reverse    guifg=#7194ff       guibg=#1c1c1c
 
     hi Tabline      ctermfg=245 ctermbg=235 cterm=underline         gui=underline   guifg=#8a8a8a       guibg=#262626
     hi TablineSel   ctermfg=250 ctermbg=234 cterm=bold              gui=bold        guifg=#bcbcbc       guibg=#1c1c1c
