@@ -119,6 +119,9 @@ inoremap KJ         <C-O>I
 " toggle case
 inoremap <C-_>      <Esc>viwg~gi
 
+" end of line
+noremap <Leader>4   $
+
 " ··········· autocompletion ·· {{{1
 
 inoremap        <C-L>  <C-X><C-L>
@@ -196,9 +199,6 @@ nnoremap <silent> <Leader>]  :call ColorColToggle()<CR>
 nnoremap <C-L>           zz<C-L>
 nnoremap <Leader><C-L>   zt<C-L>
 
-" ··········· tags ············ {{{1
-nnoremap <F5> :!ctags -R<CR>
-
 " ··········· testing ········· {{{1
 nmap     <Leader>r           <Plug>RunFocusedSpec
 nmap     <Leader>t           <Plug>RunCurrentSpecFile
@@ -221,4 +221,6 @@ nnoremap          <Leader>ec    :Econtroller
 nnoremap          <Leader>em    :Emodel 
 nnoremap          <Leader>ev    :Eview 
 nnoremap          <Leader>eh    :Ehelper 
+
+nnoremap <Leader>P Orequire 'pry'; binding.pry<Esc>0
 
